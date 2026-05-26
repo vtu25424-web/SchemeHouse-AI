@@ -1,6 +1,23 @@
+# Node
 node_modules/
-.env
-dist/
-build/
+
+# Python
+venv/
 __pycache__/
 *.pyc
+
+# Environment Variables
+.env
+
+# Build Files
+dist/
+build/
+
+# VS Code
+.vscode/
+
+# OS
+.DS_Store
+
+# Logs
+*.log
