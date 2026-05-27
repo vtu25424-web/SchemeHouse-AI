@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.database.mongodb import db
-from app.routes import auth_routes
+from app.routes import auth_routes, scheme_routes
 
 app = FastAPI(
     title="SchemeHouse AI Backend",
@@ -23,6 +23,13 @@ app.include_router(
     auth_routes.router,
     prefix="/auth",
     tags=["Authentication"]
+)
+
+# Scheme Routes
+app.include_router(
+    scheme_routes.router,
+    prefix="/api",
+    tags=["Schemes"]
 )
 
 # Home Route
