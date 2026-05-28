@@ -1,13 +1,15 @@
-import React from "react";
+import UserProfileForm from "../components/forms/UserProfileForm";
 
-const Profile = () => {
-  return (
-    <div>
-      <h1>User Profile</h1>
+function Profile() {
 
-      <p>User information will appear here.</p>
-    </div>
-  );
-};
+    return (
+
+        <div>
+
+            <UserProfileForm />
+
+        </div>
+    );
+}
 
 export default Profile;

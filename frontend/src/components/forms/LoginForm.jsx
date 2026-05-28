@@ -28,6 +28,11 @@ function LoginForm() {
         data.token
       );
 
+      localStorage.setItem(
+        "userEmail",
+        formData.email
+      );
+      
       alert("Login successful");
 
       console.log(data);

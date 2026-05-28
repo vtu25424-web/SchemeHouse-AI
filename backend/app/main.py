@@ -3,6 +3,8 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.database.mongodb import db
 from app.routes import auth_routes, scheme_routes
+from app.routes.user_routes import router as user_router
+
 
 app = FastAPI(
     title="SchemeHouse AI Backend",
@@ -30,6 +32,13 @@ app.include_router(
     scheme_routes.router,
     prefix="/api",
     tags=["Schemes"]
+)
+
+# User Routes
+app.include_router(
+    user_router,
+    prefix="/user",
+    tags=["User"]
 )
 
 # Home Route

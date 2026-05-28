@@ -1,10 +1,20 @@
 from pydantic import BaseModel, EmailStr
 
+
 class UserRegister(BaseModel):
     name: str
     email: EmailStr
     password: str
 
+
 class UserLogin(BaseModel):
     email: EmailStr
     password: str
+
+
+class UserProfile(BaseModel):
+    age: int
+    income: float
+    occupation: str
+    category: str
+    state: str

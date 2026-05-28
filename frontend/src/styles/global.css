@@ -65,3 +65,29 @@ body {
   text-align: center;
   padding: 15px;
 }
+
+
+/* =========================
+   PROFILE FORM STYLES
+========================= */
+
+.profile-form {
+  width: 400px;
+  margin: auto;
+  padding: 20px;
+}
+
+.profile-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.profile-form input {
+  padding: 10px;
+}
+
+.profile-form button {
+  padding: 10px;
+  cursor: pointer;
+}
