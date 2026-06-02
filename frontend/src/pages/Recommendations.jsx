@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
+import RecommendationPanel from "../components/scheme/RecommendationPanel";
 import { getRecommendations } from "../services/schemeService";
 
 function Recommendations() {
-
     const [recommendations, setRecommendations] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -21,16 +21,15 @@ function Recommendations() {
 
             if (!email) {
                 setError("User email not found. Please login again.");
-                setLoading(false);
                 return;
             }
 
             const data = await getRecommendations(email);
 
+            // Match your backend response structure
             setRecommendations(data?.recommendations || []);
-
         } catch (err) {
-            console.log("Error fetching recommendations:", err);
+            console.error("Error fetching recommendations:", err);
             setError("Failed to load recommendations. Please try again later.");
         } finally {
             setLoading(false);
@@ -39,8 +38,7 @@ function Recommendations() {
 
     return (
         <div className="recommendation-page">
-
-            <h2>Recommended Schemes</h2>
+            <h1>Your Recommended Schemes</h1>
 
             {/* Loading */}
             {loading && <p>Loading recommendations...</p>}
@@ -50,57 +48,17 @@ function Recommendations() {
                 <p style={{ color: "red" }}>{error}</p>
             )}
 
-            {/* Empty state */}
+            {/* Empty State */}
             {!loading && !error && recommendations.length === 0 && (
                 <p>No recommendations found for your profile.</p>
             )}
 
-            {/* Recommendation list */}
-            {!loading && !error && recommendations.map((scheme, index) => (
-
-                <div key={index} className="scheme-card">
-
-                    <h3>{scheme.scheme_name}</h3>
-
-                    <p>
-                        <b>Category:</b> {scheme.category}
-                    </p>
-
-                    <p>
-                        <b>Match Score:</b> {scheme.score}</p>
-
-                    <p>
-                        <b>Reason:</b> {scheme.reason}
-                    </p>
-
-                    {/* Progress Bar */}
-                    <div
-                        style={{
-                            width: "100%",
-                            background: "#eee",
-                            borderRadius: "10px",
-                            marginTop: "10px",
-                            height: "10px"
-                        }}
-                    >
-                        <div
-                            style={{
-                                width: `${Math.min(scheme.score || 0, 100)}%`,
-                                background:
-                                    (scheme.score || 0) > 80
-                                        ? "green"
-                                        : (scheme.score || 0) > 60
-                                        ? "orange"
-                                        : "red",
-                                height: "10px",
-                                borderRadius: "10px",
-                                transition: "0.3s"
-                            }}
-                        />
-                    </div>
-
-                </div>
-            ))}
+            {/* Recommendation Cards */}
+            {!loading && !error && recommendations.length > 0 && (
+                <RecommendationPanel
+                    recommendations={recommendations}
+                />
+            )}
         </div>
     );
 }

@@ -21,7 +21,7 @@ def get_recommendations(profile, schemes):
         eligibility_text = " ".join(eligibility)
 
         score = 0
-        reason_parts = []   # ✅ NEW (for explanation)
+        reason_parts = []
 
         # Category Match (Highest Priority)
         if category == scheme_category:
@@ -35,6 +35,7 @@ def get_recommendations(profile, schemes):
 
         # Additional Occupation Keywords
         if occupation == "farmer":
+
             if "small farmers" in eligibility_text:
                 score += 10
                 reason_parts.append("Small farmer benefit match")
@@ -44,7 +45,10 @@ def get_recommendations(profile, schemes):
                 reason_parts.append("Land owner eligibility match")
 
         # Income Handling
-        income_limit_raw = scheme.get("income_limit", "No limit")
+        income_limit_raw = scheme.get(
+            "income_limit",
+            "No limit"
+        )
 
         try:
             income_limit = int(
@@ -76,20 +80,29 @@ def get_recommendations(profile, schemes):
         # State Bonus
         if state and state in eligibility_text:
             score += 10
-            reason_parts.append("State-based eligibility match")
+            reason_parts.append(
+                "State-based eligibility match"
+            )
 
-        # Add only useful results
+        # Only keep useful recommendations
         if score >= 40:
 
-            # ✅ FINAL REASON STRING
-            reason = ", ".join(reason_parts) if reason_parts else "Basic eligibility match"
+            # Cap score at 100
+            score = min(score, 100)
+
+            reason = (
+                ", ".join(reason_parts)
+                if reason_parts
+                else "Basic eligibility match"
+            )
 
             recommendations.append({
                 "scheme_name": scheme_name,
                 "category": scheme.get("category"),
                 "benefits": scheme.get("benefits"),
                 "score": score,
-                "reason": reason   # ✅ ADDED HERE
+                "reason": reason,
+                "eligible": True
             })
 
     recommendations.sort(
