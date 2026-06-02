@@ -5,8 +5,9 @@ function Recommendations() {
 
     const [recommendations, setRecommendations] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
-    // IMPORTANT: matches your updated key
+    // Match your authentication storage key
     const email = localStorage.getItem("userEmail");
 
     useEffect(() => {
@@ -16,13 +17,21 @@ function Recommendations() {
     const fetchRecommendations = async () => {
         try {
             setLoading(true);
+            setError(null);
+
+            if (!email) {
+                setError("User email not found. Please login again.");
+                setLoading(false);
+                return;
+            }
 
             const data = await getRecommendations(email);
 
             setRecommendations(data?.recommendations || []);
 
-        } catch (error) {
-            console.log("Error fetching recommendations:", error);
+        } catch (err) {
+            console.log("Error fetching recommendations:", err);
+            setError("Failed to load recommendations. Please try again later.");
         } finally {
             setLoading(false);
         }
@@ -33,16 +42,21 @@ function Recommendations() {
 
             <h2>Recommended Schemes</h2>
 
-            {/* Loading state */}
+            {/* Loading */}
             {loading && <p>Loading recommendations...</p>}
 
+            {/* Error */}
+            {error && !loading && (
+                <p style={{ color: "red" }}>{error}</p>
+            )}
+
             {/* Empty state */}
-            {!loading && recommendations.length === 0 && (
+            {!loading && !error && recommendations.length === 0 && (
                 <p>No recommendations found for your profile.</p>
             )}
 
             {/* Recommendation list */}
-            {recommendations.map((scheme, index) => (
+            {!loading && !error && recommendations.map((scheme, index) => (
 
                 <div key={index} className="scheme-card">
 
@@ -53,26 +67,29 @@ function Recommendations() {
                     </p>
 
                     <p>
-                        <b>Match Score:</b> {scheme.score}
+                        <b>Match Score:</b> {scheme.score}</p>
+
+                    <p>
+                        <b>Reason:</b> {scheme.reason}
                     </p>
 
-                    {/* Progress bar (AI feel upgrade) */}
+                    {/* Progress Bar */}
                     <div
                         style={{
                             width: "100%",
                             background: "#eee",
                             borderRadius: "10px",
-                            marginTop: "8px",
+                            marginTop: "10px",
                             height: "10px"
                         }}
                     >
                         <div
                             style={{
-                                width: `${Math.min(scheme.score, 100)}%`,
+                                width: `${Math.min(scheme.score || 0, 100)}%`,
                                 background:
-                                    scheme.score > 80
+                                    (scheme.score || 0) > 80
                                         ? "green"
-                                        : scheme.score > 60
+                                        : (scheme.score || 0) > 60
                                         ? "orange"
                                         : "red",
                                 height: "10px",

@@ -1,5 +1,3 @@
-# backend/app/services/recommendation_engine.py
-
 import json
 import os
 import sys
@@ -16,6 +14,7 @@ BASE_DIR = os.path.dirname(
 sys.path.append(BASE_DIR)
 
 from ml.recommendation_logic import get_recommendations
+from app.services.user_service import get_user_profile
 
 SCHEME_FILE = os.path.join(
     BASE_DIR,
@@ -35,10 +34,17 @@ def load_schemes():
         return json.load(file)
 
 
-def generate_recommendations(profile):
+def generate_recommendations(email):
 
+    # Fetch profile from MongoDB
+    profile = get_user_profile(email)
+
+    if not profile:
+        return []
+
+    # Load schemes dataset
     schemes = load_schemes()
-
+    # Generate recommendations using ML layer
     recommendations = get_recommendations(
         profile,
         schemes

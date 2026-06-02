@@ -3,7 +3,7 @@ from app.services.recommendation_engine import generate_recommendations
 from app.services.user_service import get_user_profile
 
 router = APIRouter(
-    prefix="/recommendations",
+    prefix="/api/recommendations",
     tags=["Recommendations"]
 )
 
@@ -11,26 +11,26 @@ router = APIRouter(
 @router.get("/")
 def recommendation_home():
     return {
-        "message": "Recommendation Route Working"
+        "message": "Recommendation API Working"
     }
 
 
-@router.get("/recommend/{email}")
-def recommend_schemes(email: str):
+@router.get("/{email}")
+def get_recommendations(email: str):
 
     user = get_user_profile(email)
 
     if not user:
         return {
+            "success": False,
             "message": "User profile not found"
         }
 
-    # User data itself contains the profile
-    profile = user
-
-    recommendations = generate_recommendations(profile)
+    recommendations = generate_recommendations(email)
 
     return {
+        "success": True,
         "email": email,
+        "total_recommendations": len(recommendations),
         "recommendations": recommendations
     }

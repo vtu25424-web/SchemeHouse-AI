@@ -2,8 +2,10 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.database.mongodb import db
-from app.routes import auth_routes, scheme_routes, recommendation_routes
+
+from app.routes import auth_routes, scheme_routes
 from app.routes.user_routes import router as user_router
+from app.routes.recommendation_routes import router as recommendation_router
 
 
 app = FastAPI(
@@ -43,8 +45,7 @@ app.include_router(
 
 # Recommendation Routes
 app.include_router(
-    recommendation_routes.router,
-    tags=["Recommendations"]
+    recommendation_router
 )
 
 # Home Route
