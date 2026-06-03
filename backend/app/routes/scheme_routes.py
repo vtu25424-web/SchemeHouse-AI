@@ -2,7 +2,8 @@ from fastapi import APIRouter, Query
 from app.services.scheme_service import (
     get_all_schemes,
     search_schemes,
-    filter_schemes_by_category
+    filter_schemes_by_category,
+    filter_by_income
 )
 
 router = APIRouter()
@@ -11,17 +12,19 @@ router = APIRouter()
 # Get all schemes
 @router.get("/schemes")
 def fetch_all_schemes():
+    schemes = get_all_schemes()
+
     return {
         "success": True,
-        "total": len(get_all_schemes()),
-        "data": get_all_schemes()
+        "total": len(schemes),
+        "data": schemes
     }
 
 
 # Search schemes
 @router.get("/schemes/search")
-def search_scheme(query: str = Query(...)):
-    results = search_schemes(query)
+def search_scheme(keyword: str = Query(...)):
+    results = search_schemes(keyword)
 
     return {
         "success": True,
@@ -40,3 +43,9 @@ def filter_scheme(category: str = Query(...)):
         "total": len(results),
         "data": results
     }
+
+
+# Filter schemes by income
+@router.get("/schemes/filter-income")
+def filter_income_route(income: int = Query(...)):
+    return filter_by_income(income)

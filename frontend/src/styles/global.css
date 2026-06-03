@@ -161,3 +161,26 @@ body {
   font-weight: bold;
   transition: width 0.5s ease-in-out;
 }
+
+/* =========================
+   SEARCH FILTERS
+========================= */
+
+.filters {
+  display: flex;
+  gap: 10px;
+  margin: 20px 0;
+  flex-wrap: wrap;
+}
+
+.filters input,
+.filters select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.filters button {
+  padding: 10px 16px;
+  cursor: pointer;
+}

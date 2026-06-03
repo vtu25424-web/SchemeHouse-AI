@@ -16,6 +16,7 @@ function RecommendationPanel({ recommendations }) {
                 <SchemeCard
                     key={index}
                     scheme={scheme}
+                    type="recommendation"
                 />
             ))}
         </div>

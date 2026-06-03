@@ -2,305 +2,201 @@
   {
     "scheme_name": "PM Kisan Samman Nidhi",
     "category": "Agriculture",
-    "income_limit": "No limit",
-    "eligibility": [
-      "Small farmers",
-      "Indian citizens",
-      "Agricultural land owners"
-    ],
-    "benefits": [
-      "₹6000 annual financial support",
-      "Direct bank transfer"
-    ]
+    "min_income": 0,
+    "max_income": 500000,
+    "eligibility": ["Small farmers", "Indian citizens", "Agricultural land owners"],
+    "benefits": ["₹6000 annual financial support", "Direct bank transfer"]
   },
   {
     "scheme_name": "Ayushman Bharat",
     "category": "Healthcare",
-    "income_limit": "Below poverty line",
-    "eligibility": [
-      "Economically weaker families",
-      "Indian citizens"
-    ],
-    "benefits": [
-      "Free medical treatment",
-      "Health insurance coverage up to ₹5 lakh"
-    ]
+    "min_income": 0,
+    "max_income": 100000,
+    "eligibility": ["Economically weaker families", "Indian citizens"],
+    "benefits": ["Free medical treatment", "Health insurance coverage up to ₹5 lakh"]
   },
   {
     "scheme_name": "Pradhan Mantri Awas Yojana",
     "category": "Housing",
-    "income_limit": "Below ₹18 lakh",
-    "eligibility": [
-      "First-time home buyers",
-      "Economically weaker sections"
-    ],
-    "benefits": [
-      "Housing subsidy",
-      "Affordable home loans"
-    ]
+    "min_income": 0,
+    "max_income": 300000,
+    "eligibility": ["First-time home buyers", "Economically weaker sections"],
+    "benefits": ["Housing subsidy", "Affordable home loans"]
   },
   {
     "scheme_name": "Stand Up India",
     "category": "Business",
-    "income_limit": "No limit",
-    "eligibility": [
-      "Women entrepreneurs",
-      "SC/ST entrepreneurs"
-    ],
-    "benefits": [
-      "Business loans",
-      "Startup financial support"
-    ]
+    "min_income": 100000,
+    "max_income": 1000000,
+    "eligibility": ["Women entrepreneurs", "SC/ST entrepreneurs"],
+    "benefits": ["Business loans", "Startup financial support"]
   },
   {
     "scheme_name": "Mudra Loan Scheme",
     "category": "Business",
-    "income_limit": "No limit",
-    "eligibility": [
-      "Small business owners",
-      "Startup owners"
-    ],
-    "benefits": [
-      "Business loans up to ₹10 lakh"
-    ]
+    "min_income": 0,
+    "max_income": 800000,
+    "eligibility": ["Small business owners", "Startup owners"],
+    "benefits": ["Business loans up to ₹10 lakh"]
   },
   {
     "scheme_name": "Sukanya Samriddhi Yojana",
     "category": "Women",
-    "income_limit": "No limit",
-    "eligibility": [
-      "Girl child below 10 years",
-      "Indian citizens"
-    ],
-    "benefits": [
-      "High-interest savings account",
-      "Tax benefits"
-    ]
+    "min_income": 0,
+    "max_income": 500000,
+    "eligibility": ["Girl child below 10 years", "Indian citizens"],
+    "benefits": ["High-interest savings account", "Tax benefits"]
   },
   {
     "scheme_name": "Beti Bachao Beti Padhao",
     "category": "Women",
-    "income_limit": "No limit",
-    "eligibility": [
-      "Girl children",
-      "Families with girl child"
-    ],
-    "benefits": [
-      "Educational support",
-      "Women empowerment programs"
-    ]
+    "min_income": 0,
+    "max_income": 300000,
+    "eligibility": ["Girl children", "Families with girl child"],
+    "benefits": ["Educational support", "Women empowerment programs"]
   },
   {
     "scheme_name": "PMEGP",
     "category": "Employment",
-    "income_limit": "No limit",
-    "eligibility": [
-      "Entrepreneurs",
-      "Youth"
-    ],
-    "benefits": [
-      "Loan subsidy",
-      "Self-employment support"
-    ]
+    "min_income": 0,
+    "max_income": 500000,
+    "eligibility": ["Entrepreneurs", "Youth"],
+    "benefits": ["Loan subsidy", "Self-employment support"]
   },
   {
     "scheme_name": "National Scholarship Scheme",
     "category": "Education",
-    "income_limit": "Below ₹8 lakh",
-    "eligibility": [
-      "Students",
-      "Merit candidates"
-    ],
-    "benefits": [
-      "Scholarship support",
-      "Educational assistance"
-    ]
+    "min_income": 0,
+    "max_income": 800000,
+    "eligibility": ["Students", "Merit candidates"],
+    "benefits": ["Scholarship support", "Educational assistance"]
   },
   {
     "scheme_name": "PM Ujjwala Yojana",
     "category": "Women",
-    "income_limit": "Below poverty line",
-    "eligibility": [
-      "Women from BPL families"
-    ],
-    "benefits": [
-      "Free LPG connection"
-    ]
+    "min_income": 0,
+    "max_income": 100000,
+    "eligibility": ["Women from BPL families"],
+    "benefits": ["Free LPG connection"]
   },
   {
     "scheme_name": "Atal Pension Yojana",
     "category": "Pension",
-    "income_limit": "No limit",
-    "eligibility": [
-      "Citizens aged 18-40"
-    ],
-    "benefits": [
-      "Monthly pension after retirement"
-    ]
+    "min_income": 0,
+    "max_income": 200000,
+    "eligibility": ["Citizens aged 18-40"],
+    "benefits": ["Monthly pension after retirement"]
   },
   {
     "scheme_name": "Skill India Mission",
     "category": "Employment",
-    "income_limit": "No limit",
-    "eligibility": [
-      "Youth",
-      "Job seekers"
-    ],
-    "benefits": [
-      "Skill development training",
-      "Employment opportunities"
-    ]
+    "min_income": 0,
+    "max_income": 500000,
+    "eligibility": ["Youth", "Job seekers"],
+    "benefits": ["Skill development training", "Employment opportunities"]
   },
   {
     "scheme_name": "Digital India",
     "category": "Technology",
-    "income_limit": "No limit",
-    "eligibility": [
-      "Indian citizens"
-    ],
-    "benefits": [
-      "Digital literacy",
-      "Online services access"
-    ]
+    "min_income": 0,
+    "max_income": 1000000,
+    "eligibility": ["Indian citizens"],
+    "benefits": ["Digital literacy", "Online services access"]
   },
   {
     "scheme_name": "Startup India",
     "category": "Business",
-    "income_limit": "No limit",
-    "eligibility": [
-      "Startup founders"
-    ],
-    "benefits": [
-      "Tax exemptions",
-      "Funding support"
-    ]
+    "min_income": 100000,
+    "max_income": 1000000,
+    "eligibility": ["Startup founders"],
+    "benefits": ["Tax exemptions", "Funding support"]
   },
   {
     "scheme_name": "PM Suraksha Bima Yojana",
     "category": "Insurance",
-    "income_limit": "No limit",
-    "eligibility": [
-      "Citizens aged 18-70"
-    ],
-    "benefits": [
-      "Accident insurance coverage"
-    ]
+    "min_income": 0,
+    "max_income": 500000,
+    "eligibility": ["Citizens aged 18-70"],
+    "benefits": ["Accident insurance coverage"]
   },
   {
     "scheme_name": "PM Jeevan Jyoti Bima Yojana",
     "category": "Insurance",
-    "income_limit": "No limit",
-    "eligibility": [
-      "Citizens aged 18-50"
-    ],
-    "benefits": [
-      "Life insurance coverage"
-    ]
+    "min_income": 0,
+    "max_income": 500000,
+    "eligibility": ["Citizens aged 18-50"],
+    "benefits": ["Life insurance coverage"]
   },
   {
     "scheme_name": "Kisan Credit Card",
     "category": "Agriculture",
-    "income_limit": "No limit",
-    "eligibility": [
-      "Farmers"
-    ],
-    "benefits": [
-      "Low-interest agricultural loans"
-    ]
+    "min_income": 0,
+    "max_income": 500000,
+    "eligibility": ["Farmers"],
+    "benefits": ["Low-interest agricultural loans"]
   },
   {
     "scheme_name": "PM Fasal Bima Yojana",
     "category": "Agriculture",
-    "income_limit": "No limit",
-    "eligibility": [
-      "Farmers"
-    ],
-    "benefits": [
-      "Crop insurance"
-    ]
+    "min_income": 0,
+    "max_income": 500000,
+    "eligibility": ["Farmers"],
+    "benefits": ["Crop insurance"]
   },
   {
     "scheme_name": "National Apprenticeship Scheme",
     "category": "Employment",
-    "income_limit": "No limit",
-    "eligibility": [
-      "Students",
-      "Fresh graduates"
-    ],
-    "benefits": [
-      "Industrial training",
-      "Monthly stipend"
-    ]
+    "min_income": 0,
+    "max_income": 600000,
+    "eligibility": ["Students", "Fresh graduates"],
+    "benefits": ["Industrial training", "Monthly stipend"]
   },
   {
     "scheme_name": "E-Shram Card Scheme",
     "category": "Workers",
-    "income_limit": "No limit",
-    "eligibility": [
-      "Unorganized workers"
-    ],
-    "benefits": [
-      "Government welfare benefits",
-      "Insurance support"
-    ]
+    "min_income": 0,
+    "max_income": 300000,
+    "eligibility": ["Unorganized workers"],
+    "benefits": ["Government welfare benefits", "Insurance support"]
   },
   {
     "scheme_name": "PM Vishwakarma Scheme",
     "category": "Workers",
-    "income_limit": "No limit",
-    "eligibility": [
-      "Traditional artisans",
-      "Craft workers"
-    ],
-    "benefits": [
-      "Skill training",
-      "Financial assistance"
-    ]
+    "min_income": 0,
+    "max_income": 400000,
+    "eligibility": ["Traditional artisans", "Craft workers"],
+    "benefits": ["Skill training", "Financial assistance"]
   },
   {
     "scheme_name": "Jan Dhan Yojana",
     "category": "Banking",
-    "income_limit": "No limit",
-    "eligibility": [
-      "Indian citizens"
-    ],
-    "benefits": [
-      "Zero balance bank account",
-      "Insurance benefits"
-    ]
+    "min_income": 0,
+    "max_income": 500000,
+    "eligibility": ["Indian citizens"],
+    "benefits": ["Zero balance bank account", "Insurance benefits"]
   },
   {
     "scheme_name": "Free Sewing Machine Scheme",
     "category": "Women",
-    "income_limit": "Below ₹2 lakh",
-    "eligibility": [
-      "Women aged 20-40"
-    ],
-    "benefits": [
-      "Free sewing machine"
-    ]
+    "min_income": 0,
+    "max_income": 200000,
+    "eligibility": ["Women aged 20-40"],
+    "benefits": ["Free sewing machine"]
   },
   {
     "scheme_name": "PM Kaushal Vikas Yojana",
     "category": "Education",
-    "income_limit": "No limit",
-    "eligibility": [
-      "Youth"
-    ],
-    "benefits": [
-      "Free skill training",
-      "Certification"
-    ]
+    "min_income": 0,
+    "max_income": 600000,
+    "eligibility": ["Youth"],
+    "benefits": ["Free skill training", "Certification"]
   },
   {
     "scheme_name": "National Means Cum Merit Scholarship",
     "category": "Education",
-    "income_limit": "Below ₹3.5 lakh",
-    "eligibility": [
-      "School students"
-    ],
-    "benefits": [
-      "Scholarship support"
-    ]
+    "min_income": 0,
+    "max_income": 350000,
+    "eligibility": ["School students"],
+    "benefits": ["Scholarship support"]
   }
 ]

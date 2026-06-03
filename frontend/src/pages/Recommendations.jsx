@@ -7,30 +7,41 @@ function Recommendations() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    // Match your authentication storage key
-    const email = localStorage.getItem("userEmail");
-
     useEffect(() => {
-        fetchRecommendations();
+        loadRecommendations();
     }, []);
 
-    const fetchRecommendations = async () => {
+    const loadRecommendations = async () => {
         try {
             setLoading(true);
             setError(null);
 
+            const email = localStorage.getItem("userEmail");
+
+            console.log("User Email:", email);
+
             if (!email) {
                 setError("User email not found. Please login again.");
+                setLoading(false);
                 return;
             }
 
             const data = await getRecommendations(email);
 
-            // Match your backend response structure
-            setRecommendations(data?.recommendations || []);
+            console.log("RECOMMENDATIONS:", data);
+
+            setRecommendations(
+                Array.isArray(data) ? data : []
+            );
         } catch (err) {
-            console.error("Error fetching recommendations:", err);
-            setError("Failed to load recommendations. Please try again later.");
+            console.error(
+                "Error fetching recommendations:",
+                err
+            );
+
+            setError(
+                "Failed to load recommendations. Please try again later."
+            );
         } finally {
             setLoading(false);
         }
@@ -40,25 +51,31 @@ function Recommendations() {
         <div className="recommendation-page">
             <h1>Your Recommended Schemes</h1>
 
-            {/* Loading */}
-            {loading && <p>Loading recommendations...</p>}
+            {loading && (
+                <p>Loading recommendations...</p>
+            )}
 
-            {/* Error */}
             {error && !loading && (
-                <p style={{ color: "red" }}>{error}</p>
+                <p style={{ color: "red" }}>
+                    {error}
+                </p>
             )}
 
-            {/* Empty State */}
-            {!loading && !error && recommendations.length === 0 && (
-                <p>No recommendations found for your profile.</p>
-            )}
+            {!loading &&
+                !error &&
+                recommendations.length === 0 && (
+                    <p>
+                        No recommendations found for your profile.
+                    </p>
+                )}
 
-            {/* Recommendation Cards */}
-            {!loading && !error && recommendations.length > 0 && (
-                <RecommendationPanel
-                    recommendations={recommendations}
-                />
-            )}
+            {!loading &&
+                !error &&
+                recommendations.length > 0 && (
+                    <RecommendationPanel
+                        recommendations={recommendations}
+                    />
+                )}
         </div>
     );
 }
