@@ -1,98 +1,95 @@
-function SchemeCard({
-    scheme,
-    type = "search"
-}) {
-    const score = Math.min(
-        scheme.match_score || scheme.score || 0,
-        100
-    );
+function SchemeCard({ scheme, type = "search" }) {
+  const score = Math.min(
+    scheme.match_score || scheme.score || 0,
+    100
+  );
 
-    return (
-        <div className="scheme-card">
+  const isRecommendation = type === "recommendation";
 
-            <h3>{scheme.scheme_name}</h3>
+  return (
+    <div className="scheme-card">
 
-            <p>
-                <strong>Category:</strong>{" "}
-                {scheme.category}
-            </p>
+      {/* TITLE */}
+      <h3>{scheme.scheme_name}</h3>
 
-            {/* Recommendation Mode */}
-            {type === "recommendation" && (
-                <>
-                    <p
-                        style={{
-                            color: scheme.eligible
-                                ? "green"
-                                : "red",
-                            fontWeight: "bold",
-                            fontSize: "16px"
-                        }}
-                    >
-                        {scheme.eligible
-                            ? "🟢 Eligible"
-                            : "🔴 Not Eligible"}
-                    </p>
+      {/* CATEGORY */}
+      <p>
+        <b>Category:</b> {scheme.category}
+      </p>
 
-                    <p>
-                        <strong>
-                            Match Score:
-                        </strong>{" "}
-                        {score}%
-                    </p>
+      {/* ========================= */}
+      {/* SEARCH MODE (FILTER PAGE) */}
+      {/* ========================= */}
+      {!isRecommendation && (
+        <>
+          <p>
+            <b>Income Range:</b> ₹{scheme.min_income} - ₹{scheme.max_income}
+          </p>
 
-                    <div className="score-bar">
-                        <div
-                            className="score-fill"
-                            style={{
-                                width: `${score}%`,
-                                background:
-                                    score >= 90
-                                        ? "#16a34a"
-                                        : score >= 70
-                                        ? "#2563eb"
-                                        : "#f59e0b"
-                            }}
-                        >
-                            {score}%
-                        </div>
-                    </div>
-
-                    <p>
-                        <strong>
-                            Reason:
-                        </strong>{" "}
-                        {scheme.reason}
-                    </p>
-                </>
-            )}
-
-            {/* Search / Filter Mode */}
-            {type === "search" && (
-                <p>
-                    <strong>
-                        Income Range:
-                    </strong>{" "}
-                    ₹{scheme.min_income}
-                    {" - "}
-                    ₹{scheme.max_income}
-                </p>
-            )}
-
-            <h4>Benefits:</h4>
-
+          <div>
+            <b>Benefits:</b>
             <ul>
-                {scheme.benefits?.map(
-                    (benefit, index) => (
-                        <li key={index}>
-                            {benefit}
-                        </li>
-                    )
-                )}
+              {scheme.benefits?.map((benefit, index) => (
+                <li key={index}>{benefit}</li>
+              ))}
             </ul>
+          </div>
+        </>
+      )}
 
-        </div>
-    );
+      {/* ========================= */}
+      {/* RECOMMENDATION MODE (AI) */}
+      {/* ========================= */}
+      {isRecommendation && (
+        <>
+          {/* ELIGIBILITY */}
+          <p
+            style={{
+              color: scheme.eligible ? "green" : "red",
+              fontWeight: "bold",
+              fontSize: "16px"
+            }}
+          >
+            {scheme.eligible ? "🟢 Eligible" : "🔴 Not Eligible"}
+          </p>
+
+          {/* MATCH SCORE */}
+          {score > 0 && (
+            <>
+              <p>
+                <b>Match Score:</b> {score}%
+              </p>
+
+              <div className="score-bar">
+                <div
+                  className="score-fill"
+                  style={{
+                    width: `${score}%`,
+                    background:
+                      score >= 90
+                        ? "#16a34a"
+                        : score >= 70
+                        ? "#2563eb"
+                        : "#f59e0b"
+                  }}
+                >
+                  {score}%
+                </div>
+              </div>
+            </>
+          )}
+
+          {/* REASON */}
+          {scheme.reason && (
+            <p>
+              <b>Reason:</b> {scheme.reason}
+            </p>
+          )}
+        </>
+      )}
+
+    </div>
+  );
 }
 
 export default SchemeCard;

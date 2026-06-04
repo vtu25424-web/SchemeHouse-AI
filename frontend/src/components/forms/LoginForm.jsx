@@ -21,34 +21,40 @@ function LoginForm() {
     e.preventDefault();
 
     try {
-      const response = await loginUser(formData);
+      const res = await loginUser(formData);
 
-      // Store token
-      localStorage.setItem(
-        "token",
-        response.token
-      );
+      // SAFE RESPONSE HANDLING
+      const response = res?.data || res;
 
-      // Store user email
-      localStorage.setItem(
-        "email",
-        response.user.email
-      );
+      console.log("LOGIN RESPONSE:", response);
+
+      // Token handling (supports both formats)
+      const token = response?.token || response?.access_token;
+
+      if (token) {
+        localStorage.setItem("token", token);
+      }
+
+      // Email handling
+      const email = response?.user?.email || response?.email;
+
+      if (email) {
+        localStorage.setItem("email", email);
+      }
 
       alert("Login successful");
-
-      console.log(response);
 
       navigate("/dashboard");
 
     } catch (error) {
-      console.error(error);
+      console.error("Login error:", error);
       alert("Login failed");
     }
   };
 
   return (
     <form onSubmit={handleSubmit}>
+
       <input
         type="email"
         name="email"
@@ -70,6 +76,7 @@ function LoginForm() {
       <button type="submit">
         Login
       </button>
+
     </form>
   );
 }

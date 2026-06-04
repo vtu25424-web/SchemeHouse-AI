@@ -1,26 +1,35 @@
 import SchemeCard from "./SchemeCard";
 
-function RecommendationPanel({ recommendations }) {
+const RecommendationPanel = ({ schemes }) => {
 
-    if (!recommendations || recommendations.length === 0) {
-        return (
-            <div>
-                <h3>No recommendations available.</h3>
-            </div>
-        );
-    }
+  // =========================
+  // LOADING STATE
+  // =========================
+  if (schemes === null || schemes === undefined) {
+    return <p>Loading recommendations...</p>;
+  }
 
-    return (
-        <div className="recommendation-panel">
-            {recommendations.map((scheme, index) => (
-                <SchemeCard
-                    key={index}
-                    scheme={scheme}
-                    type="recommendation"
-                />
-            ))}
+  // =========================
+  // EMPTY STATE
+  // =========================
+  if (schemes.length === 0) {
+    return <p>No recommendations found.</p>;
+  }
+
+  return (
+    <div className="recommendation-panel">
+
+      {schemes.map((scheme, index) => (
+        <div key={index}>
+          <SchemeCard
+            scheme={scheme}
+            type="recommendation"
+          />
         </div>
-    );
-}
+      ))}
+
+    </div>
+  );
+};
 
 export default RecommendationPanel;

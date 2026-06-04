@@ -10,86 +10,97 @@ const SchemeFilters = ({
   return (
     <div className="filters">
 
-      <input
-        type="text"
-        placeholder="Search Scheme"
-        value={keyword}
-        onChange={(e) =>
-          setKeyword(e.target.value)
-        }
-      />
+      {/* Search Keyword */}
+      <div className="filter-group">
+        <label>Search Scheme</label>
+        <input
+          type="text"
+          placeholder="Enter scheme name or keyword"
+          value={keyword}
+          onChange={(e) => setKeyword(e.target.value)}
+        />
+      </div>
 
-      <select
-        value={category}
-        onChange={(e) =>
-          setCategory(e.target.value)
-        }
-      >
-        <option value="">
-          All Categories
-        </option>
+      {/* Category */}
+      <div className="filter-group">
+        <label>Category</label>
 
-        <option value="Agriculture">
-          Agriculture
-        </option>
+        <select
+          value={category}
+          onChange={(e) => setCategory(e.target.value)}
+        >
+          <option value="">All Categories</option>
 
-        <option value="Education">
-          Education
-        </option>
+          <option value="Agriculture">
+            Agriculture
+          </option>
 
-        <option value="Healthcare">
-          Healthcare
-        </option>
+          <option value="Education">
+            Education
+          </option>
 
-        <option value="Housing">
-          Housing
-        </option>
+          <option value="Healthcare">
+            Healthcare
+          </option>
 
-        <option value="Women">
-          Women
-        </option>
+          <option value="Housing">
+            Housing
+          </option>
 
-        <option value="Business">
-          Business
-        </option>
+          <option value="Women">
+            Women
+          </option>
 
-        <option value="Employment">
-          Employment
-        </option>
+          <option value="Business">
+            Business
+          </option>
 
-        <option value="Technology">
-          Technology
-        </option>
+          <option value="Employment">
+            Employment
+          </option>
 
-        <option value="Insurance">
-          Insurance
-        </option>
+          <option value="Technology">
+            Technology
+          </option>
 
-        <option value="Workers">
-          Workers
-        </option>
+          <option value="Insurance">
+            Insurance
+          </option>
 
-        <option value="Banking">
-          Banking
-        </option>
+          <option value="Workers">
+            Workers
+          </option>
 
-        <option value="Pension">
-          Pension
-        </option>
-      </select>
+          <option value="Banking">
+            Banking
+          </option>
 
-      <input
-        type="number"
-        placeholder="Income"
-        value={income}
-        onChange={(e) =>
-          setIncome(e.target.value)
-        }
-      />
+          <option value="Pension">
+            Pension
+          </option>
+        </select>
+      </div>
 
-      <button onClick={onSearch}>
-        Apply Filters
-      </button>
+      {/* Income */}
+      <div className="filter-group">
+        <label>Income Limit</label>
+
+        <input
+          type="number"
+          placeholder="Enter annual income"
+          value={income}
+          onChange={(e) => setIncome(e.target.value)}
+        />
+      </div>
+
+      {/* Button */}
+      <div className="filter-group">
+        <label>&nbsp;</label>
+
+        <button onClick={onSearch}>
+          Apply Filters
+        </button>
+      </div>
 
     </div>
   );

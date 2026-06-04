@@ -15,6 +15,7 @@ export const searchSchemes = async (keyword) => {
   const response = await api.get(
     `/api/schemes/search?keyword=${keyword}`
   );
+
   return response.data.data;
 };
 
@@ -25,6 +26,7 @@ export const filterSchemes = async (category) => {
   const response = await api.get(
     `/api/schemes/filter?category=${category}`
   );
+
   return response.data.data;
 };
 
@@ -36,7 +38,7 @@ export const filterByIncome = async (income) => {
     `/api/schemes/filter-income?income=${income}`
   );
 
-  return response.data;
+  return response.data.data;
 };
 
 /**
@@ -48,5 +50,6 @@ export const getRecommendations = async (email) => {
     `/api/recommendations/${email}`
   );
 
-  return response.data.recommendations;
+  // ✅ FIXED: return full response object (consistent with Dashboard & Recommendations page)
+  return response.data;
 };

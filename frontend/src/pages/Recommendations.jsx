@@ -11,12 +11,16 @@ function Recommendations() {
         loadRecommendations();
     }, []);
 
+    // =========================
+    // LOAD RECOMMENDATIONS
+    // =========================
     const loadRecommendations = async () => {
         try {
             setLoading(true);
             setError(null);
 
-            const email = localStorage.getItem("userEmail");
+            // ✅ FIXED EMAIL KEY
+            const email = localStorage.getItem("email");
 
             console.log("User Email:", email);
 
@@ -28,20 +32,16 @@ function Recommendations() {
 
             const data = await getRecommendations(email);
 
-            console.log("RECOMMENDATIONS:", data);
+            console.log("API RESPONSE:", data);
 
-            setRecommendations(
-                Array.isArray(data) ? data : []
-            );
+            // ✅ FIXED: backend returns { recommendations: [...] }
+            const recs = data?.recommendations || [];
+
+            setRecommendations(recs);
+
         } catch (err) {
-            console.error(
-                "Error fetching recommendations:",
-                err
-            );
-
-            setError(
-                "Failed to load recommendations. Please try again later."
-            );
+            console.error("Error fetching recommendations:", err);
+            setError("Failed to load recommendations. Please try again later.");
         } finally {
             setLoading(false);
         }
@@ -51,31 +51,23 @@ function Recommendations() {
         <div className="recommendation-page">
             <h1>Your Recommended Schemes</h1>
 
-            {loading && (
-                <p>Loading recommendations...</p>
-            )}
+            {/* LOADING STATE */}
+            {loading && <p>Loading recommendations...</p>}
 
+            {/* ERROR STATE */}
             {error && !loading && (
-                <p style={{ color: "red" }}>
-                    {error}
-                </p>
+                <p style={{ color: "red" }}>{error}</p>
             )}
 
-            {!loading &&
-                !error &&
-                recommendations.length === 0 && (
-                    <p>
-                        No recommendations found for your profile.
-                    </p>
-                )}
+            {/* EMPTY STATE */}
+            {!loading && !error && recommendations.length === 0 && (
+                <p>No recommendations found for your profile.</p>
+            )}
 
-            {!loading &&
-                !error &&
-                recommendations.length > 0 && (
-                    <RecommendationPanel
-                        recommendations={recommendations}
-                    />
-                )}
+            {/* DATA STATE */}
+            {!loading && !error && recommendations.length > 0 && (
+                <RecommendationPanel schemes={recommendations} />
+            )}
         </div>
     );
 }
