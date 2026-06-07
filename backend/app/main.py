@@ -2,60 +2,85 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.database.mongodb import db
-
-from app.routes import auth_routes, scheme_routes
+from app.routes import (
+    auth_routes,
+    scheme_routes,
+    admin_routes
+)
 from app.routes.user_routes import router as user_router
 from app.routes.recommendation_routes import router as recommendation_router
-
 
 app = FastAPI(
     title="SchemeHouse AI Backend",
     version="1.0.0"
 )
 
+# =========================
 # CORS Configuration
+# =========================
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["*"],  # Restrict in production
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-# Authentication Routes
+# =========================
+# AUTHENTICATION ROUTES
+# =========================
 app.include_router(
     auth_routes.router,
     prefix="/auth",
     tags=["Authentication"]
 )
 
-# Scheme Routes
+# =========================
+# SCHEME ROUTES
+# =========================
 app.include_router(
     scheme_routes.router,
     prefix="/api",
     tags=["Schemes"]
 )
 
-# User Routes
+# =========================
+# USER ROUTES
+# =========================
 app.include_router(
     user_router,
     prefix="/user",
     tags=["User"]
 )
 
-# Recommendation Routes
+# =========================
+# RECOMMENDATION ROUTES
+# =========================
 app.include_router(
-    recommendation_router
+    recommendation_router,
+    tags=["Recommendations"]
 )
 
-# Home Route
+# =========================
+# ADMIN ROUTES
+# =========================
+app.include_router(
+    admin_routes.router
+)
+
+# =========================
+# HOME ROUTE
+# =========================
 @app.get("/")
 def home():
     return {
         "message": "SchemeHouse AI Backend Running Successfully"
     }
 
-# Database Test Route
+
+# =========================
+# DATABASE TEST ROUTE
+# =========================
 @app.get("/test-db")
 def test_database():
     return {

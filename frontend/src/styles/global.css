@@ -353,3 +353,31 @@ body {
   font-weight: 700;
   margin: 2px 0 0 0;
 }
+
+.admin-container {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+}
+
+.admin-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.admin-container input,
+.admin-container textarea {
+  padding: 10px;
+}
+
+.scheme-admin-card {
+  background: #f5f5f5;
+  padding: 15px;
+  margin-top: 10px;
+  border-radius: 8px;
+}
+
+.scheme-admin-card button {
+  margin-right: 10px;
+}
