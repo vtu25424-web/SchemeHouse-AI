@@ -58,6 +58,7 @@ app.include_router(
 # =========================
 app.include_router(
     recommendation_router,
+    prefix="/recommendations",
     tags=["Recommendations"]
 )
 

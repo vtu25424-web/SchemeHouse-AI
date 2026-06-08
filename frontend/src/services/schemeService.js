@@ -44,7 +44,7 @@ export const filterByIncome = async (income) => {
  */
 export const getRecommendations = async (email) => {
   const response = await api.get(
-    `/api/recommendations/${email}`
+    `/recommendations/api/recommendations/${email}`
   );
 
   // Return full response object
