@@ -34,6 +34,20 @@ function SchemeCard({ scheme, type = "search" }) {
               ))}
             </ul>
           </div>
+
+          {/* APPLY BUTTON */}
+          {scheme.official_link && (
+            <div style={{ marginTop: "10px" }}>
+              <a
+                href={scheme.official_link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="apply-btn"
+              >
+                Apply Now
+              </a>
+            </div>
+          )}
         </>
       )}
 
@@ -84,6 +98,20 @@ function SchemeCard({ scheme, type = "search" }) {
             <p>
               <b>Reason:</b> {scheme.reason}
             </p>
+          )}
+
+          {/* APPLY BUTTON (RECOMMENDATION MODE ALSO) */}
+          {scheme.official_link && (
+            <div style={{ marginTop: "10px" }}>
+              <a
+                href={scheme.official_link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="apply-btn"
+              >
+                Apply Now
+              </a>
+            </div>
           )}
         </>
       )}

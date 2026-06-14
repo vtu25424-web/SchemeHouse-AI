@@ -4,9 +4,9 @@ const SchemeList = ({ schemes = [] }) => {
   return (
     <div>
       {schemes.length > 0 ? (
-        schemes.map((scheme, index) => (
+        schemes.map((scheme) => (
           <SchemeCard
-            key={index}
+            key={scheme.scheme_name}
             scheme={scheme}
             type="search"
           />

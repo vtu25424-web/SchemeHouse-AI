@@ -20,7 +20,6 @@ function Recommendations() {
             setLoading(true);
             setError(null);
 
-            // ✅ FIXED EMAIL KEY
             const email = localStorage.getItem("email");
 
             console.log("User Email:", email);
@@ -35,8 +34,10 @@ function Recommendations() {
 
             console.log("API RESPONSE:", data);
 
-            // ✅ FIXED: backend returns { recommendations: [...] }
-            const recs = data?.recommendations || [];
+            // Safe fallback
+            const recs = Array.isArray(data?.recommendations)
+                ? data.recommendations
+                : [];
 
             setRecommendations(recs);
 
@@ -53,28 +54,26 @@ function Recommendations() {
             <div className="recommendation-page">
                 <h1>Your Recommended Schemes</h1>
 
-                {/* LOADING STATE */}
+                {/* LOADING */}
                 {loading && <p>Loading recommendations...</p>}
 
-                {/* ERROR STATE */}
+                {/* ERROR */}
                 {error && !loading && (
                     <p style={{ color: "red" }}>{error}</p>
                 )}
 
-                {/* EMPTY STATE */}
+                {/* EMPTY */}
                 {!loading && !error && recommendations.length === 0 && (
                     <p>No recommendations found for your profile.</p>
                 )}
 
-                {/* DATA STATE */}
+                {/* DATA */}
                 {!loading && !error && recommendations.length > 0 && (
                     <RecommendationPanel schemes={recommendations} />
                 )}
             </div>
 
-            {/* =========================
-                AI CHATBOT
-            ========================= */}
+            {/* AI CHATBOT */}
             <ChatBox />
         </>
     );

@@ -42,7 +42,7 @@ def generate_recommendations(email):
     if not profile:
         return []
 
-    # Load schemes from MongoDB
+    # Load schemes from MongoDB (now includes official_link)
     schemes = get_all_schemes()
 
     # Generate recommendations using ML layer
@@ -51,11 +51,33 @@ def generate_recommendations(email):
         schemes
     )
 
-    return recommendations
+    # ==========================
+    # Ensure official_link exists
+    # ==========================
+    formatted_recommendations = []
+
+    for scheme in recommendations:
+        formatted_recommendations.append({
+            "scheme_name": scheme.get("scheme_name", ""),
+            "category": scheme.get("category", ""),
+            "min_income": scheme.get("min_income", 0),
+            "max_income": scheme.get("max_income", 0),
+            "benefits": scheme.get("benefits", []),
+            "eligibility": scheme.get("eligibility", []),
+
+            # NEW FIELD
+            "official_link": scheme.get("official_link", ""),
+
+            "score": scheme.get("score", 0),
+            "eligible": scheme.get("eligible", False),
+            "reason": scheme.get("reason", "")
+        })
+
+    return formatted_recommendations
 
 
 # ==========================
-# AI Chatbot Function
+# AI CHATBOT FUNCTION
 # ==========================
 
 def chatbot_response(user_message):

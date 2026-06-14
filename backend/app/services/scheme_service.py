@@ -122,7 +122,18 @@ def filter_by_income(income):
 
 def add_scheme(scheme):
     """Add a new scheme to MongoDB."""
-    SCHEME_COLLECTION.insert_one(scheme)
+
+    scheme_data = {
+        "scheme_name": scheme.get("scheme_name"),
+        "category": scheme.get("category"),
+        "min_income": scheme.get("min_income"),
+        "max_income": scheme.get("max_income"),
+        "eligibility": scheme.get("eligibility", []),
+        "benefits": scheme.get("benefits", []),
+        "official_link": scheme.get("official_link", "")
+    }
+
+    SCHEME_COLLECTION.insert_one(scheme_data)
 
     return {
         "message": "Scheme added successfully"

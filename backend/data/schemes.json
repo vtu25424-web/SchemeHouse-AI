@@ -5,7 +5,8 @@
     "min_income": 0,
     "max_income": 500000,
     "eligibility": ["Small farmers", "Indian citizens", "Agricultural land owners"],
-    "benefits": ["₹6000 annual financial support", "Direct bank transfer"]
+    "benefits": ["₹6000 annual financial support", "Direct bank transfer"],
+    "official_link": "https://pmkisan.gov.in"
   },
   {
     "scheme_name": "Ayushman Bharat",
@@ -13,7 +14,8 @@
     "min_income": 0,
     "max_income": 100000,
     "eligibility": ["Economically weaker families", "Indian citizens"],
-    "benefits": ["Free medical treatment", "Health insurance coverage up to ₹5 lakh"]
+    "benefits": ["Free medical treatment", "Health insurance coverage up to ₹5 lakh"],
+    "official_link": "https://pmjay.gov.in"
   },
   {
     "scheme_name": "Pradhan Mantri Awas Yojana",
@@ -21,7 +23,8 @@
     "min_income": 0,
     "max_income": 300000,
     "eligibility": ["First-time home buyers", "Economically weaker sections"],
-    "benefits": ["Housing subsidy", "Affordable home loans"]
+    "benefits": ["Housing subsidy", "Affordable home loans"],
+    "official_link": "https://pmaymis.gov.in"
   },
   {
     "scheme_name": "Stand Up India",
@@ -29,7 +32,8 @@
     "min_income": 100000,
     "max_income": 1000000,
     "eligibility": ["Women entrepreneurs", "SC/ST entrepreneurs"],
-    "benefits": ["Business loans", "Startup financial support"]
+    "benefits": ["Business loans", "Startup financial support"],
+    "official_link": "https://www.standupmitra.in"
   },
   {
     "scheme_name": "Mudra Loan Scheme",
@@ -37,7 +41,8 @@
     "min_income": 0,
     "max_income": 800000,
     "eligibility": ["Small business owners", "Startup owners"],
-    "benefits": ["Business loans up to ₹10 lakh"]
+    "benefits": ["Business loans up to ₹10 lakh"],
+    "official_link": "https://www.mudra.org.in"
   },
   {
     "scheme_name": "Sukanya Samriddhi Yojana",
@@ -45,7 +50,8 @@
     "min_income": 0,
     "max_income": 500000,
     "eligibility": ["Girl child below 10 years", "Indian citizens"],
-    "benefits": ["High-interest savings account", "Tax benefits"]
+    "benefits": ["High-interest savings account", "Tax benefits"],
+    "official_link": "https://www.nsiindia.gov.in"
   },
   {
     "scheme_name": "Beti Bachao Beti Padhao",
@@ -53,7 +59,8 @@
     "min_income": 0,
     "max_income": 300000,
     "eligibility": ["Girl children", "Families with girl child"],
-    "benefits": ["Educational support", "Women empowerment programs"]
+    "benefits": ["Educational support", "Women empowerment programs"],
+    "official_link": "https://wcd.nic.in"
   },
   {
     "scheme_name": "PMEGP",
@@ -61,7 +68,8 @@
     "min_income": 0,
     "max_income": 500000,
     "eligibility": ["Entrepreneurs", "Youth"],
-    "benefits": ["Loan subsidy", "Self-employment support"]
+    "benefits": ["Loan subsidy", "Self-employment support"],
+    "official_link": "https://www.kviconline.gov.in"
   },
   {
     "scheme_name": "National Scholarship Scheme",
@@ -69,7 +77,8 @@
     "min_income": 0,
     "max_income": 800000,
     "eligibility": ["Students", "Merit candidates"],
-    "benefits": ["Scholarship support", "Educational assistance"]
+    "benefits": ["Scholarship support", "Educational assistance"],
+    "official_link": "https://scholarships.gov.in"
   },
   {
     "scheme_name": "PM Ujjwala Yojana",
@@ -77,7 +86,8 @@
     "min_income": 0,
     "max_income": 100000,
     "eligibility": ["Women from BPL families"],
-    "benefits": ["Free LPG connection"]
+    "benefits": ["Free LPG connection"],
+    "official_link": "https://www.pmuy.gov.in"
   },
   {
     "scheme_name": "Atal Pension Yojana",
@@ -85,7 +95,8 @@
     "min_income": 0,
     "max_income": 200000,
     "eligibility": ["Citizens aged 18-40"],
-    "benefits": ["Monthly pension after retirement"]
+    "benefits": ["Monthly pension after retirement"],
+    "official_link": "https://www.npscra.nsdl.co.in"
   },
   {
     "scheme_name": "Skill India Mission",
@@ -93,7 +104,8 @@
     "min_income": 0,
     "max_income": 500000,
     "eligibility": ["Youth", "Job seekers"],
-    "benefits": ["Skill development training", "Employment opportunities"]
+    "benefits": ["Skill development training", "Employment opportunities"],
+    "official_link": "https://www.skillindia.gov.in"
   },
   {
     "scheme_name": "Digital India",
@@ -101,7 +113,8 @@
     "min_income": 0,
     "max_income": 1000000,
     "eligibility": ["Indian citizens"],
-    "benefits": ["Digital literacy", "Online services access"]
+    "benefits": ["Digital literacy", "Online services access"],
+    "official_link": "https://www.digitalindia.gov.in"
   },
   {
     "scheme_name": "Startup India",
@@ -109,7 +122,8 @@
     "min_income": 100000,
     "max_income": 1000000,
     "eligibility": ["Startup founders"],
-    "benefits": ["Tax exemptions", "Funding support"]
+    "benefits": ["Tax exemptions", "Funding support"],
+    "official_link": "https://www.startupindia.gov.in"
   },
   {
     "scheme_name": "PM Suraksha Bima Yojana",
@@ -117,7 +131,8 @@
     "min_income": 0,
     "max_income": 500000,
     "eligibility": ["Citizens aged 18-70"],
-    "benefits": ["Accident insurance coverage"]
+    "benefits": ["Accident insurance coverage"],
+    "official_link": "https://www.jansuraksha.gov.in"
   },
   {
     "scheme_name": "PM Jeevan Jyoti Bima Yojana",
@@ -125,7 +140,8 @@
     "min_income": 0,
     "max_income": 500000,
     "eligibility": ["Citizens aged 18-50"],
-    "benefits": ["Life insurance coverage"]
+    "benefits": ["Life insurance coverage"],
+    "official_link": "https://www.jansuraksha.gov.in"
   },
   {
     "scheme_name": "Kisan Credit Card",
@@ -133,7 +149,8 @@
     "min_income": 0,
     "max_income": 500000,
     "eligibility": ["Farmers"],
-    "benefits": ["Low-interest agricultural loans"]
+    "benefits": ["Low-interest agricultural loans"],
+    "official_link": "https://pmkisan.gov.in"
   },
   {
     "scheme_name": "PM Fasal Bima Yojana",
@@ -141,7 +158,8 @@
     "min_income": 0,
     "max_income": 500000,
     "eligibility": ["Farmers"],
-    "benefits": ["Crop insurance"]
+    "benefits": ["Crop insurance"],
+    "official_link": "https://pmfby.gov.in"
   },
   {
     "scheme_name": "National Apprenticeship Scheme",
@@ -149,7 +167,8 @@
     "min_income": 0,
     "max_income": 600000,
     "eligibility": ["Students", "Fresh graduates"],
-    "benefits": ["Industrial training", "Monthly stipend"]
+    "benefits": ["Industrial training", "Monthly stipend"],
+    "official_link": "https://apprenticeshipindia.gov.in"
   },
   {
     "scheme_name": "E-Shram Card Scheme",
@@ -157,7 +176,8 @@
     "min_income": 0,
     "max_income": 300000,
     "eligibility": ["Unorganized workers"],
-    "benefits": ["Government welfare benefits", "Insurance support"]
+    "benefits": ["Government welfare benefits", "Insurance support"],
+    "official_link": "https://eshram.gov.in"
   },
   {
     "scheme_name": "PM Vishwakarma Scheme",
@@ -165,7 +185,8 @@
     "min_income": 0,
     "max_income": 400000,
     "eligibility": ["Traditional artisans", "Craft workers"],
-    "benefits": ["Skill training", "Financial assistance"]
+    "benefits": ["Skill training", "Financial assistance"],
+    "official_link": "https://pmvishwakarma.gov.in"
   },
   {
     "scheme_name": "Jan Dhan Yojana",
@@ -173,7 +194,8 @@
     "min_income": 0,
     "max_income": 500000,
     "eligibility": ["Indian citizens"],
-    "benefits": ["Zero balance bank account", "Insurance benefits"]
+    "benefits": ["Zero balance bank account", "Insurance benefits"],
+    "official_link": "https://pmjdy.gov.in"
   },
   {
     "scheme_name": "Free Sewing Machine Scheme",
@@ -181,7 +203,8 @@
     "min_income": 0,
     "max_income": 200000,
     "eligibility": ["Women aged 20-40"],
-    "benefits": ["Free sewing machine"]
+    "benefits": ["Free sewing machine"],
+    "official_link": ""
   },
   {
     "scheme_name": "PM Kaushal Vikas Yojana",
@@ -189,7 +212,8 @@
     "min_income": 0,
     "max_income": 600000,
     "eligibility": ["Youth"],
-    "benefits": ["Free skill training", "Certification"]
+    "benefits": ["Free skill training", "Certification"],
+    "official_link": "https://www.pmkvyofficial.org"
   },
   {
     "scheme_name": "National Means Cum Merit Scholarship",
@@ -197,6 +221,7 @@
     "min_income": 0,
     "max_income": 350000,
     "eligibility": ["School students"],
-    "benefits": ["Scholarship support"]
+    "benefits": ["Scholarship support"],
+    "official_link": "https://scholarships.gov.in"
   }
 ]

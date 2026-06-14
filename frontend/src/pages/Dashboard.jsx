@@ -51,7 +51,7 @@ const Dashboard = () => {
       console.log("API RESPONSE:", res);
 
       const data = res?.recommendations || [];
-      setRecommendations(data);
+      setRecommendations(Array.isArray(data) ? data : []);
     } catch (err) {
       console.log("Recommendation error:", err);
       setRecommendations([]);
@@ -79,7 +79,7 @@ const Dashboard = () => {
         } else {
           setProfile(null);
         }
-      } catch (e) {
+      } catch {
         setProfile(null);
       }
     }
@@ -95,7 +95,7 @@ const Dashboard = () => {
   };
 
   // =========================
-  // 📊 STATS CALCULATION
+  // STATS CALCULATION
   // =========================
   const eligibleSchemes = recommendations.filter(
     (s) => s.eligible === true
@@ -127,12 +127,9 @@ const Dashboard = () => {
   return (
     <div className="dashboard-container">
 
-      {/* TITLE */}
       <h2 className="full-width">📊 Dashboard</h2>
 
-      {/* =========================
-          STATS SECTION
-      ========================= */}
+      {/* STATS */}
       <div className="stats-container">
 
         <div className="stat-card">
@@ -152,12 +149,9 @@ const Dashboard = () => {
 
       </div>
 
-      {/* =========================
-          PROFILE + INSIGHT GRID
-      ========================= */}
+      {/* PROFILE + INSIGHT */}
       <div className="dashboard-grid">
 
-        {/* PROFILE CARD */}
         <div className="card">
           <h3>👤 Profile Status</h3>
 
@@ -178,7 +172,6 @@ const Dashboard = () => {
           )}
         </div>
 
-        {/* SMART INSIGHT */}
         <div className="card">
           <h3>💡 Smart Insight</h3>
           <p>Based on your profile, you are highly eligible for:</p>
@@ -192,9 +185,7 @@ const Dashboard = () => {
 
       </div>
 
-      {/* =========================
-          RECOMMENDATIONS
-      ========================= */}
+      {/* RECOMMENDATIONS */}
       <div className="card full-width">
         <h3>🧠 Recommended Schemes</h3>
 
@@ -212,9 +203,7 @@ const Dashboard = () => {
         )}
       </div>
 
-      {/* =========================
-          RECENT SEARCHES
-      ========================= */}
+      {/* RECENT SEARCHES */}
       <div className="card full-width">
         <h3>🔎 Recent Searches</h3>
 

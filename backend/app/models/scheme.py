@@ -8,3 +8,4 @@ class Scheme(BaseModel):
     max_income: int
     eligibility: List[str]
     benefits: List[str]
+    official_link: str

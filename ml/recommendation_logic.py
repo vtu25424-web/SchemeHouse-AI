@@ -100,6 +100,7 @@ def get_recommendations(profile, schemes):
                 "scheme_name": scheme_name,
                 "category": scheme.get("category"),
                 "benefits": scheme.get("benefits"),
+                "official_link": scheme.get("official_link", ""),
                 "score": score,
                 "reason": reason,
                 "eligible": True

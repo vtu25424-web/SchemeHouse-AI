@@ -11,6 +11,7 @@ function AdminPanel() {
     max_income: "",
     eligibility: "",
     benefits: "",
+    official_link: ""
   });
 
   const [editingScheme, setEditingScheme] = useState(null);
@@ -50,7 +51,8 @@ function AdminPanel() {
   const addScheme = async () => {
     try {
       const payload = {
-        ...formData,
+        scheme_name: formData.scheme_name,
+        category: formData.category,
         min_income: Number(formData.min_income),
         max_income: Number(formData.max_income),
         eligibility: formData.eligibility
@@ -59,6 +61,7 @@ function AdminPanel() {
         benefits: formData.benefits
           .split(",")
           .map((item) => item.trim()),
+        official_link: formData.official_link
       };
 
       await axios.post(
@@ -75,6 +78,7 @@ function AdminPanel() {
         max_income: "",
         eligibility: "",
         benefits: "",
+        official_link: ""
       });
 
       alert("Scheme Added");
@@ -119,6 +123,7 @@ function AdminPanel() {
       benefits: Array.isArray(scheme.benefits)
         ? scheme.benefits.join(",")
         : "",
+      official_link: scheme.official_link || ""
     });
   };
 
@@ -128,7 +133,8 @@ function AdminPanel() {
   const updateScheme = async () => {
     try {
       const payload = {
-        ...formData,
+        scheme_name: formData.scheme_name,
+        category: formData.category,
         min_income: Number(formData.min_income),
         max_income: Number(formData.max_income),
         eligibility: formData.eligibility
@@ -137,6 +143,7 @@ function AdminPanel() {
         benefits: formData.benefits
           .split(",")
           .map((item) => item.trim()),
+        official_link: formData.official_link
       };
 
       await axios.put(
@@ -153,6 +160,7 @@ function AdminPanel() {
         max_income: "",
         eligibility: "",
         benefits: "",
+        official_link: ""
       });
 
       fetchSchemes();
@@ -176,8 +184,7 @@ function AdminPanel() {
         onChange={handleChange}
       />
 
-      <br />
-      <br />
+      <br /><br />
 
       <input
         type="text"
@@ -187,8 +194,7 @@ function AdminPanel() {
         onChange={handleChange}
       />
 
-      <br />
-      <br />
+      <br /><br />
 
       <input
         type="number"
@@ -198,8 +204,7 @@ function AdminPanel() {
         onChange={handleChange}
       />
 
-      <br />
-      <br />
+      <br /><br />
 
       <input
         type="number"
@@ -209,8 +214,7 @@ function AdminPanel() {
         onChange={handleChange}
       />
 
-      <br />
-      <br />
+      <br /><br />
 
       <input
         type="text"
@@ -220,8 +224,7 @@ function AdminPanel() {
         onChange={handleChange}
       />
 
-      <br />
-      <br />
+      <br /><br />
 
       <input
         type="text"
@@ -231,8 +234,18 @@ function AdminPanel() {
         onChange={handleChange}
       />
 
-      <br />
-      <br />
+      <br /><br />
+
+      {/* NEW FIELD */}
+      <input
+        type="text"
+        name="official_link"
+        placeholder="Official Scheme Website"
+        value={formData.official_link}
+        onChange={handleChange}
+      />
+
+      <br /><br />
 
       {editingScheme ? (
         <button onClick={updateScheme}>
@@ -255,30 +268,25 @@ function AdminPanel() {
           <div key={index}>
             <h3>{scheme.scheme_name}</h3>
 
-            <p>
-              Category: {scheme.category}
-            </p>
+            <p>Category: {scheme.category}</p>
 
             <p>
-              Income: ₹{scheme.min_income} -
-              ₹{scheme.max_income}
+              Income: ₹{scheme.min_income} - ₹{scheme.max_income}
             </p>
 
-            <button
-              onClick={() => editScheme(scheme)}
-            >
+            {scheme.official_link && (
+              <p>
+                🔗 <a href={scheme.official_link} target="_blank" rel="noreferrer">
+                  Official Link
+                </a>
+              </p>
+            )}
+
+            <button onClick={() => editScheme(scheme)}>
               Edit
-            </button>
+            </button>{" "}
 
-            {" "}
-
-            <button
-              onClick={() =>
-                deleteScheme(
-                  scheme.scheme_name
-                )
-              }
-            >
+            <button onClick={() => deleteScheme(scheme.scheme_name)}>
               Delete
             </button>
 

@@ -24,7 +24,7 @@ const SearchSchemes = () => {
 
       console.log("RAW SCHEMES:", data);
 
-      const schemesData = data || [];
+      const schemesData = Array.isArray(data) ? data : [];
 
       setAllSchemes(schemesData);
       setSchemes(schemesData);
@@ -143,7 +143,6 @@ const SearchSchemes = () => {
       {/* RESULTS SECTION */}
       <div className="results-section">
 
-        {/* RESULTS HEADER (NEW UI STRUCTURE) */}
         <div className="results-header">
           <h4>Available Schemes</h4>
           <p>Showing schemes based on selected filters</p>
